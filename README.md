@@ -54,7 +54,11 @@ ghostClass
 scroll
 scrollSensitivity
 scrollSpeed
+groupName
+groupPut
+groupPull
 ```
+groupName,groupPut and groupPull all make up the group property of the Sortable plugin. [RubaXa's Documentation on Group](https://github.com/RubaXa/Sortable#group-option)
 ####Callbacks
 ```
 onStart
