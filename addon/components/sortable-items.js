@@ -30,6 +30,16 @@ var SortableItems = Ember.Component.extend({
   scroll: true,
   scrollSensitivity: 30, // px
   scrollSpeed: 10, // px
+  groupName: "",
+  groupPull:"",
+  groupPut: "",
+  group: function(){
+	  var group = {};
+	  group.name = this.get('groupName');
+	  group.pull = this.get("groupPull");
+	  group.put = this.get("groupPut");
+	  return group;
+  }.property("groupName,groupPull,groupPut"),
 
   /**
     @method setup
@@ -40,6 +50,7 @@ var SortableItems = Ember.Component.extend({
     var self = this;
     var options = {
       sort: this.get('sort'),
+	  group: this.get("group"),
       disabled: this.get('disabled'),
       store: this.get('store'),
       animation: this.get('animation'),
@@ -64,7 +75,6 @@ var SortableItems = Ember.Component.extend({
     }
 
     this.set('_sortableInstance', new Sortable(this.$()[0], options));
-
   }.on('didInsertElement'),
 
 
